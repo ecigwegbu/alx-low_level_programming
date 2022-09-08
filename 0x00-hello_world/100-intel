@@ -1,2 +1,2 @@
 #!/bin/bash
-gcc -std=gnu89 -S -fgnu-tm $CFILE
+gcc -std=gnu89 -S $CFILE
