@@ -12,14 +12,12 @@
 int main(void)
 {
 	int n;
-
-	srand(time(0));
-	n = rand() - RAND_MAX / 2;
-
-	/* your code goes there */
 	char buff[20];
 	int strSize;
 	char lastDigit;
+
+	srand(time(0));
+	n = rand() - RAND_MAX / 2;
 
 	strSize = sprintf(buff, "%d", n);
 	lastDigit = buff[strSize - 1];
