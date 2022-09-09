@@ -14,24 +14,33 @@ int main(void)
 	int n;
 	char buff[20];
 	int strSize;
-	char lastDigit;
+	int lastDigit;
+	char lastDigitStr[2];
+	int numSign;
 
 	srand(time(0));
 	n = rand() - RAND_MAX / 2;
 
+	if (n < 0)
+		numSign = -1;
+	else
+		numSign = 1;
+
 	strSize = sprintf(buff, "%d", n);
-	lastDigit = buff[strSize - 1];
-	if (lastDigit > '5')
+	lastDigitStr[0] = buff[strSize - 1];
+	lastDigitStr[1] = '\0';
+	lastDigit = atoi(lastDigitStr) * numSign;
+	if (lastDigit > 5)
 	{
-		printf("Last digit of %d is %c and is greater than 5\n", n, lastDigit);
+		printf("Last digit of %d is %d and is greater than 5\n", n, lastDigit);
 	}
-	else if (lastDigit == '0')
+	else if (lastDigit == 0)
 	{
-		printf("Last digit of %d is %c and is zero\n", n, lastDigit);
+		printf("Last digit of %d is %d and is zero\n", n, lastDigit);
 	}
 	else
 	{
-		printf("Last digit of %d is %c", n, lastDigit);
+		printf("Last digit of %d is %d", n, lastDigit);
 		printf(" and is less than 6 and not 0\n");
 	}
 
