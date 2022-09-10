@@ -3,6 +3,9 @@
 /**
  * main - prints 00 01, 00 02, .. , 98 99 using putchar only 8 times max
  *
+ * n starts each cycle from col 0 except when starting a fresh m
+ * in chich case it starts at j+1
+ *
  * Return: 0 - exit status zero if all ok
  */
 int main(void)
@@ -15,7 +18,7 @@ int main(void)
 		{
 			for (m = i; m < 58; m++)
 			{
-				for (n = j + 1; n < 58; n++)
+				for (n = (m == i ? j + 1 : 48); n < 58; n++)
 				{
 					putchar(i);
 					putchar(j);
