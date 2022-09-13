@@ -3,8 +3,8 @@
 /**
  * _islower - checks for lowercase
  * uses _putchar.c include file
- *
  * Return: 1 if lowercase, 0 otherwise
+ * @c: the input char
  */
 int _islower(int c)
 {
