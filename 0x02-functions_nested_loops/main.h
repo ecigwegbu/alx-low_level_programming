@@ -21,4 +21,8 @@ int _isalpha(int c);
 /* @n: input number */
 int print_sign(int n);
 
+/* Return: absolute value of number */
+/* @n: input number */
+int _abs(int n);
+
 #endif
