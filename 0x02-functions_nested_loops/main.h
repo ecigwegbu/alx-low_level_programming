@@ -38,4 +38,7 @@ void times_table(void);
 /* @b: input integer 2 */
 int add(int a, int b);
 
+/* @n: starting number */
+void print_to_98(int n);
+
 #endif
