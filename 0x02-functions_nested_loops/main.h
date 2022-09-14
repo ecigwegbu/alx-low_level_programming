@@ -25,4 +25,8 @@ int print_sign(int n);
 /* @n: input number */
 int _abs(int n);
 
+/* Return: last digit */
+/* @n: input number */
+int print_last_digit(int n);
+
 #endif
