@@ -5,7 +5,7 @@
  * jack_bauer - prints the time in 00:00 format
  *
  */
-void jack_bauer(void)
+int jack_bauer(char ch, int i)
 {
 	int i, j, m, n;
 
@@ -27,5 +27,6 @@ void jack_bauer(void)
 			}
 		}
 	}
+	return (0);
 }
 

@@ -33,4 +33,9 @@ void jack_bauer(void);
 
 void times_table(void);
 
+/* Return: result of a + b */
+/* @a: input integer 1 */
+/* @b: input integer 2 */
+int add(int a, int b);
+
 #endif
