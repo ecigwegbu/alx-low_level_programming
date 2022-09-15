@@ -7,16 +7,18 @@
  */
 int main(void)
 {
-	int i = 1, j = 2, temp;
+	long i = 1, j = 2, temp;
+	int count;
 
-	printf("%d, %d", i, j);
+	printf("%ld, %ld", i, j);
+	count = 2;
 	do {
 		temp = j;
 		j += i;
 		i = temp;
-		printf(", %d", j);
-
-	} while (i + j < 50);
+		printf(", %ld", j);
+		count++;
+	} while (count < 50);
 
 	printf("\n");
 
