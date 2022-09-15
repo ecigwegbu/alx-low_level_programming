@@ -41,4 +41,7 @@ int add(int a, int b);
 /* @n: starting number */
 void print_to_98(int n);
 
+/* @n: table number */
+void print_times_table(int n);
+
 #endif
