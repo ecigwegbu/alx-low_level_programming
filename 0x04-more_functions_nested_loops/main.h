@@ -13,4 +13,9 @@ int _isupper(int c);
 /* @c: input char */
 int _isdigit(int c);
 
+/* Return: 1 or 0 */
+/* @a: first number */
+/* @b: second number */
+int mul(int a, int b);
+
 #endif
