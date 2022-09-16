@@ -27,4 +27,7 @@ void more_numbers(void);
 /* @n: the number of times to draw _ */
 void print_line(int n);
 
+/* @n: the number of times to draw \ */
+void print_diagonal(int n);
+
 #endif
