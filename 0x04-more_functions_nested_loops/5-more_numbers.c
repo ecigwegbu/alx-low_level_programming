@@ -20,8 +20,8 @@ void more_numbers(void)
 				m = '1';
 
 			n = i % 10 + 48;
-
-			_putchar(m);
+			if (i > 9)
+				_putchar(m);
 			_putchar(n);
 		}
 	_putchar('\n');
