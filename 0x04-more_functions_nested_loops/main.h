@@ -30,4 +30,8 @@ void print_line(int n);
 /* @n: the number of times to draw \ */
 void print_diagonal(int n);
 
+/* @size: the size of square */
+void print_square(int size);
+
+
 #endif
