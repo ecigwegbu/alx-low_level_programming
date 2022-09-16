@@ -9,4 +9,8 @@ int _putchar(char c);
 /* @c: input char */
 int _isupper(int c);
 
+/* Return: 1 or 0 */
+/* @c: input char */
+int _isdigit(int c);
+
 #endif
