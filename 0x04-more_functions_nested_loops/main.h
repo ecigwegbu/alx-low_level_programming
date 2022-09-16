@@ -18,4 +18,6 @@ int _isdigit(int c);
 /* @b: second number */
 int mul(int a, int b);
 
+void print_numbers(void);
+
 #endif
