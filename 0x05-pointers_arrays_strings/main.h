@@ -11,5 +11,10 @@ void reset_to_98(int *n);
 /* @a: value to swap with another */
 /* @b: value to swap with another */
 void swap_int(int *a, int *b);
+
+/* @s: the string to get its length */
+/* Return: the length of the string excluding the null terminator. */
+int _strlen(char *s);
+
 #endif
 
