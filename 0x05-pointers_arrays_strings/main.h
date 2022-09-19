@@ -16,5 +16,8 @@ void swap_int(int *a, int *b);
 /* Return: the length of the string excluding the null terminator. */
 int _strlen(char *s);
 
+/* @str: the string to print */
+void _puts(char *str);
+
 #endif
 
