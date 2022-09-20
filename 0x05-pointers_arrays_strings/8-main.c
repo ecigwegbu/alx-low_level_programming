@@ -16,6 +16,8 @@ int main(void)
 	array[3] = 298;
 	array[4] = -1024;
 	print_array(array, 5);
+	print_array(array, 0);
+	print_array(array, -1);
 
 	return (0);
 }
