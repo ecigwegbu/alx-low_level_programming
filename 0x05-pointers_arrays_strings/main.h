@@ -31,5 +31,10 @@ void puts2(char *str);
 /* @str: the string to print */
 void puts_half(char *str);
 
+/* @a: array pointer */
+/* @n: number of elements */
+void print_array(int *a, int n);
+
+
 #endif
 
