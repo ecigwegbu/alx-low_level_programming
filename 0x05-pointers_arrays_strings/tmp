@@ -1,0 +1,13 @@
+/*****************************************************************************/
+#include "main.h"
+#include <stdio.h>
+
+/**
+ * _atoi - convert a string to an integer
+ *
+ * @s: the string containing the text to convert
+ * Return: the converted integer
+ */
+int _atoi(char *s)
+{
+

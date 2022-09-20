@@ -39,6 +39,10 @@ void print_array(int *a, int n);
 /* @src: source string */
 char *_strcpy(char *dest, char *src);
 
+/* @s: the string containing the text to convert to integer */
+/* Return: the converted integer or zero. */
+int _atoi(char *s);
+
 
 #endif
 
