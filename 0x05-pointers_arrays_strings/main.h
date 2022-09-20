@@ -28,5 +28,8 @@ void rev_string(char *s);
 /* @str: the string to print */
 void puts2(char *str);
 
+/* @str: the string to print */
+void puts_half(char *str);
+
 #endif
 
