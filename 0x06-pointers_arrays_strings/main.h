@@ -18,5 +18,10 @@ int _strlen(char *str);
 /* @n: the number of characters to copy */
 char *_strncat(char *dest, char *src, int n);
 
+/* @dest: destination buffer */
+/* @src: source string */
+/* @n: the number of characters to copy */
+char *_strncpy(char *dest, char *src, int n);
+
 #endif
 
