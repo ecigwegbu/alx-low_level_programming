@@ -1,0 +1,55 @@
+/*****************************************************************************/
+#include "main.h"
+/**
+ * _strncat - concatenates n characters from src to dest strings
+ *
+ * @dest: the destination string
+ * @src: the src string
+ * @n: the number of characters to consider
+ *
+ * Return: the resulting string
+ */
+char *_strncat(char *dest, char *src, int n)
+{
+	int i = 0, dest_sz, src_sz;
+
+	dest_sz = _strlen(dest);
+	/* src_sz = _strlen(src); */
+
+	for (i = 0; i < n; i++)
+	{
+		if (src[i] == '\0')
+		{
+			src_sz = i;
+			break;
+		}
+		src_sz = i;
+		i++;
+	}
+
+
+	for (i = 0; i <= src_sz; i++)
+	{
+		dest[dest_sz + i] = src[i];
+	}
+
+	return (dest);
+}
+
+/**
+ * _strlen - determines the length of a string
+ * @str: the string to evaluate
+ *
+ * Return: the length of the string
+ */
+int _strlen(char *str)
+{
+	int i = 0;
+
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+
+	return (i);
+}
