@@ -1,0 +1,7 @@
+/**
+ * _strlen - determines the length of a string
+ * @str: the string to evaluate
+ *
+ * Return: the length of the string
+ */
+int _strlen(char *str)
