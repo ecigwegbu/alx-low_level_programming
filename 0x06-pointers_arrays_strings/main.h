@@ -27,5 +27,9 @@ char *_strncpy(char *dest, char *src, int n);
 /* @s2: string 2 */
 int _strcmp(char *s1, char *s2);
 
+/* @a: the array to reverse */
+/* @n: the size of the array */
+void reverse_array(int *a, int n);
+
 #endif
 
