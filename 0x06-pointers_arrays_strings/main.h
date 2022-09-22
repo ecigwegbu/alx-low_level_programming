@@ -31,8 +31,15 @@ int _strcmp(char *s1, char *s2);
 /* @n: the size of the array */
 void reverse_array(int *a, int n);
 
-/* str: the string to convert it's lower case to upper case */
+/* @str: the string to convert it's lower case to upper case */
 char *string_toupper(char *str);
+
+/* @str: the string to apitalise all its words */
+char *cap_string(char *str);
+
+/* @ch: character to test */
+/* Return: 1 if it is, zero if not */
+int _isSeparator(char ch);
 
 #endif
 
