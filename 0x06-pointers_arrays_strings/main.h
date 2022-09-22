@@ -23,5 +23,9 @@ char *_strncat(char *dest, char *src, int n);
 /* @n: the number of characters to copy */
 char *_strncpy(char *dest, char *src, int n);
 
+/* @s1: string 1 */
+/* @s2: string 2 */
+int _strcmp(char *s1, char *s2);
+
 #endif
 
