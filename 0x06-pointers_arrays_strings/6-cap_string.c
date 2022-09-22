@@ -20,8 +20,6 @@ char *cap_string(char *str)
 		if (_isSeparator(str[i]))
 		{
 			wordFound = 1;
-			if (str[i] == '\t')
-				str[i] = ' ';
 		}
 		else if (wordFound == 1)
 		{
