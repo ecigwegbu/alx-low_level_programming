@@ -41,5 +41,9 @@ char *cap_string(char *str);
 /* Return: 1 if it is, zero if not */
 int _isSeparator(char ch);
 
+/* @str: the string to LEET  */
+/* Return: the leet-ed string */
+char *leet(char * str);
+
 #endif
 
