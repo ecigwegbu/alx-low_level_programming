@@ -30,17 +30,21 @@ int _strcmp(char *s1, char *s2)
 	/* scan each byte */
 	for (i = 0; i < sm_sz; i++)
 	{
-	if (s1[i] > s2[i])
-		return (15);
-	else if (s1[i] < s2[i])
+	if (s1[i] < s2[i])
 		return (-15);
+	else if (s1[i] > s2[i])
+		return (15);
 	}
+
+	/* in case of equal scan, use shorter one */
 	if (shorter == 1)
 		return (-15);
 	else if (shorter == 0)
 		return (0);
-	else
+	else if (shorter == 2)
 		return (15);
+
+	return (0);
 }
 
 /**
