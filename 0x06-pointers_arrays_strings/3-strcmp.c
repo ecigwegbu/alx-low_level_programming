@@ -31,9 +31,9 @@ int _strcmp(char *s1, char *s2)
 	for (i = 0; i < sm_sz; i++)
 	{
 	if (s1[i] < s2[i])
-		return (15);
+		return (-100);
 	else if (s1[i] > s2[i])
-		return (-15);
+		return (100);
 	}
 
 	/* in case of equal scan, use shorter one */
