@@ -9,25 +9,19 @@
  */
 char *leet(char *str)
 {
-	int i;
+	int i, j;
+	char alpha[] = "AaeEoOtTlL";
+	char digit[] = "4433007711";
 
-	i = 0;
-	while (str[i] != '\0')
-	{
-		char c = str[i];
+	/* scan for each character in string */
+	for (i = 0; str[i] != '\0'; i++)
 
-		if (c == 'a' || c == 'A')
-			str[i] = '4';
-		else if (c == 'e' || c == 'E')
-			str[i] = '3';
-		else if (c == 'o' || c == 'O')
-			str[i] = '0';
-		else if (c == 't' || c == 'T')
-			str[i] = '7';
-		else if (c == '1' || c == 'L')
-			str[i] = '1';
-		i++;
-	}
+		/* scan for each letter */
+		for (j = 0; alpha[j] != '\0'; j++)
+			/* swap digit for alpha */
+			if (str[i] == alpha[j])
+				str[i] = digit[j];
+
 	return (str);
 }
 
