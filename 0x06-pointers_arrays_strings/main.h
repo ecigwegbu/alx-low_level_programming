@@ -43,7 +43,12 @@ int _isSeparator(char ch);
 
 /* @str: the string to LEET  */
 /* Return: the leet-ed string */
-char *leet(char * str);
+char *leet(char *str);
+
+/* @str: the string to rot13  */
+/* Return: the rot13'd string */
+char *rot13(char *str);
+
 
 #endif
 
