@@ -13,7 +13,8 @@ unsigned int _strspn(char *s, char *accept)
 {
 	unsigned int i;
 
-	while (_strchr(accept, s[i]) != (char *)'\0' && s[i] != '\0')
+	i = 0;
+	while (_strchr(accept, s[i]) && s[i])
 		i++;
 
 	return (i);
