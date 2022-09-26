@@ -10,5 +10,8 @@ char *_memset(char *s, char b, unsigned int n);
 /* @n: the number of characters to copy */
 /* Return: the new dest */
 char *_memcpy(char *dest, char *src, unsigned int n);
+
+char *_strchr(char *s, char c);
+
 #endif
 
