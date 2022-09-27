@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 /**
- * print sum of diagonals
+ * print_diagsums - print sum of diagonals
  * @a: array
  * @size: size of array
  *
@@ -28,7 +28,7 @@ void print_diagsums(int *a, int size)
 	{
 		for (j = 0; j < size; j++)
 		{
-			if (size -i == j + 1)
+			if (size - i == j + 1)
 			{
 				d2 += a[i * size + j];
 			}
