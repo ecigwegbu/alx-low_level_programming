@@ -23,5 +23,9 @@ int _strlen(char *s);
 
 int _strcmp(char *s1, char *s2);
 
+void print_chessboard(char (*a)[8]);
+
+int _putchar(char c);
+
 #endif
 
