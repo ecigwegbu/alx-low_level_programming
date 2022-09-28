@@ -51,5 +51,9 @@ int is_prime_number(int n);
 
 int is_prime_number_helper(int n, int m);
 
+int is_palindrome(char *s);
+
+int is_palindrome_helper(char *p1, char *p2, int lim);
+
 #endif
 
