@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
 
 	for (s = 1; s < argc; s++)
 	{
-		for (i = 0; i < strlen(argv[s]); i++)
+		for (i = 0; i < (int)strlen(argv[s]); i++)
 		{
 			if (argv[s][i] > '9' || argv[s][i] < '0')
 			{
