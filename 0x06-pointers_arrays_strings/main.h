@@ -49,6 +49,12 @@ char *leet(char *str);
 /* Return: the rot13'd string */
 char *rot13(char *str);
 
+/* @b: the buffer to print  */
+/* @size: the size of the buffer */
+void print_buffer(char *b, int size);
+
+
+void tidyEnd(int j, char *tp);
 
 #endif
 
