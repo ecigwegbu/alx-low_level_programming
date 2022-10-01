@@ -20,14 +20,21 @@ int main(int argc, char *argv[])
 
 	value = atoi(argv[1]);
 
-	/* parse for ieach coin type in turn */
-	c25 = value / 25;
-	c10 = (value % 25) / 10;
-	c5 = ((value % 25) % 10) / 5;
-	c2 = (((value % 25) % 10) % 5) / 2;
-	c1 = (((value % 25) % 10) % 5) % 2;
+	if (value < 0)
+	{
+		printf("0\n");
+	}
+	else
+	{
+		/* parse for each coin type in turn */
+		c25 = value / 25;
+		c10 = (value % 25) / 10;
+		c5 = ((value % 25) % 10) / 5;
+		c2 = (((value % 25) % 10) % 5) / 2;
+		c1 = (((value % 25) % 10) % 5) % 2;
 
-	printf("%d\n", c25 + c10 + c5 + c2 + c1);
+		printf("%d\n", c25 + c10 + c5 + c2 + c1);
+	}
 
 	return (0);
 }
