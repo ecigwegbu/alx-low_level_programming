@@ -12,6 +12,9 @@ char *_strdup(char *str)
 	unsigned int i, len = 0;
 	char *buf;
 
+	if (str == NULL)
+		return (NULL);
+
 	/* determine string size */
 	while (str[len])
 		len++;
