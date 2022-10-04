@@ -34,11 +34,64 @@ char *str_concat(char *s1, char *s2)
 			return (NULL);
 		_strcpy(ss2, s2);
 	}
+/* process ss1 & ss2 */
 
 	str = (char *) malloc(_strlen(ss1) + _strlen(ss2) + 1);
 	if (!str)
 		return (NULL);
+	
 	_strcat(str, ss1);
 	_strcat(str, ss2);
+	return (str);
+}
+
+	if (!s2)
+		ss2 = empty;
+	else
+		ss2 = strcpy(ss2, s2);
+
+
+	if (s1 && !s2)
+	{
+		str = (char *) malloc(_strlen(s1) + 1);
+		if (!str)
+			return (NULL);
+		else
+			return (_strcpy(str, s1));
+	}
+	else if (!s1 && s2)
+	{
+		str = (char *) malloc(_strlen(s2) + 1);
+		if (!str)
+			return (NULL);
+		else
+			return (_strcpy(str, s2));
+	}
+	else if (!s1 && !s2)
+	{
+		str = (char *) malloc(1);
+		if (!str)
+		{
+			return (NULL);
+		}
+		else
+		{
+			str[0] = '\0';
+			return (str);
+		}
+	}
+	else
+	{
+		str = (char *) malloc(_strlen(s1) + _strlen(s2) + 1);
+		if (!str)
+		{
+			return (NULL);
+		}
+		else
+		{
+			_strcat(str, s1);
+			_strcat(str, s2);
+		}
+	}
 	return (str);
 }
