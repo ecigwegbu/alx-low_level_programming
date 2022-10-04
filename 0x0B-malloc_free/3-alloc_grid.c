@@ -2,37 +2,31 @@
 #include <stdlib.h>
 #include "main.h"
 /**
- * alloc_grid - use malloc to allocate space for a two-dim matrix 
+ * alloc_grid - returns  a pointer to a 2 dimensional array of integers
  *
- * @str: the str to copy
- * Return: the string created
+ * @width: the no of rows
+ * @height: the no of cols
+ * Return: the array result
  */
-char *_strdup(char *str)
+int **alloc_grid(int width, int height)
 {
-	unsigned int i, len = 0;
-	char *buf;
+	int **mat, j;
 
-	if (str == NULL)
+	if (width <= 0 || height <= 0)
 		return (NULL);
 
-	/* determine string size */
-	while (str[len])
-		len++;
-
-	buf = (char *)malloc((len + 1) * sizeof(char));
-
-	if (!buf)
-	{
+	/* create the int *'s; there are 'height' of them */
+	mat = (int **) malloc(height * sizeof(int *));
+	if (!mat)
 		return (NULL);
-	}
-	else
+
+	/* create the int's there are 'width' of them per int * */
+	for (j = 0; j < width; j++)
 	{
-		for (i = 0; i < len; i++)
-			buf[i] = str[i];
+		mat[j] = (int *) malloc(width * sizeof(int));
+		if (!mat[j])
+			return (NULL);
 	}
-		buf[len] = '\0';
 
-	return (buf);
-
+	return (mat);
 }
-
