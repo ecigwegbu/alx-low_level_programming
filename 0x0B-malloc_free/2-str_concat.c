@@ -13,32 +13,37 @@
  */
 char *str_concat(char *s1, char *s2)
 {
-	char *str, empty[] = "", *ss1, *ss2;
+	char *str;
 
-	if (!s1)
-		ss1 = empty;
-	else
+	if (!s1 && s2)    /* only s1 empty */
 	{
-		ss1 = (char *) malloc(_strlen(s1) + 1);
-		if (!ss1)
+		str = (char *) malloc(_strlen(s2) + 1);
+		if (!str)
 			return (NULL);
-		_strcpy(ss1, s1);
+		return (_strcpy(str, s2));
 	}
-
-	if (!s2)
-		ss2 = empty;
-	else
+	else if (s1 && !s2)    /* only s2 empty */
 	{
-		ss2 = (char *) malloc(_strlen(s2) + 1);
-		if (!ss2)
+		str = (char *) malloc(_strlen(s1) + 1);
+		if (!str)
 			return (NULL);
-		_strcpy(ss2, s2);
+		return (_strcpy(str, s1));
 	}
-
-	str = (char *) malloc(_strlen(ss1) + _strlen(ss2) + 1);
-	if (!str)
-		return (NULL);
-	_strcat(str, ss1);
-	_strcat(str, ss2);
+	else if (!s1 && !s2)    /* both s1 & s2 empty */
+	{
+		str = (char *) malloc(1);
+		if (!str)
+			return (NULL);
+		str[0] = '\0';
+		return (str);
+	}
+	else if (s1 && s2)    /* neither s1 nor s2 empty */
+	{
+		str = (char *) malloc(_strlen(s1) + _strlen(s2) + 1);
+		if (!str)
+			return (NULL);
+		_strcat(str, s1);
+		_strcat(str, s2);
+	}
 	return (str);
 }
