@@ -1,97 +1,32 @@
 /*****************************************************************************/
 #include <stdlib.h>
 #include "main.h"
-#include "2-strlen.c"
-#include "0-strcat.c"
-#include "9-strcpy.c"
 /**
- * str_concat - returns the length of a string
+ * alloc_grid - returns  a pointer to a 2 dimensional array of integers
  *
- * @s1: the base string
- * @s2: the concat string
- * Return: the string result
+ * @width: the no of rows
+ * @height: the no of cols
+ * Return: the array result
  */
-char *str_concat(char *s1, char *s2)
+int **alloc_grid(int width, int height)
 {
-	char *str, empty[] = "", *ss1, *ss2;
+	int **mat, i;
 
-	if (!s1)
-		ss1 = empty;
-	else
-	{
-		ss1 = (char *) malloc(_strlen(s1) + 1);
-		if (!ss1)
-			return (NULL);
-		_strcpy(ss1, s1);
-	}
-
-	if (!s2)
-		ss2 = empty;
-	else
-	{
-		ss2 = (char *) malloc(_strlen(s2) + 1);
-		if (!ss2)
-			return (NULL);
-		_strcpy(ss2, s2);
-	}
-/* process ss1 & ss2 */
-
-	str = (char *) malloc(_strlen(ss1) + _strlen(ss2) + 1);
-	if (!str)
+	if (width <= 0 || height <= 0)
 		return (NULL);
-	
-	_strcat(str, ss1);
-	_strcat(str, ss2);
-	return (str);
-}
 
-	if (!s2)
-		ss2 = empty;
-	else
-		ss2 = strcpy(ss2, s2);
+	/* create the int *'s; there are 'height' of them */
+	mat = (int **) malloc(height * sizeof(int *));
+	if (!mat)
+		return (NULL);
 
+	/* create the int's there are 'width' of them per int * */
+	for (i = 0; i < height; i++)
+	{
+		mat[i] = (int *) malloc(width * sizeof(int));
+		if (!mat[i])
+			return (NULL);
+	}
 
-	if (s1 && !s2)
-	{
-		str = (char *) malloc(_strlen(s1) + 1);
-		if (!str)
-			return (NULL);
-		else
-			return (_strcpy(str, s1));
-	}
-	else if (!s1 && s2)
-	{
-		str = (char *) malloc(_strlen(s2) + 1);
-		if (!str)
-			return (NULL);
-		else
-			return (_strcpy(str, s2));
-	}
-	else if (!s1 && !s2)
-	{
-		str = (char *) malloc(1);
-		if (!str)
-		{
-			return (NULL);
-		}
-		else
-		{
-			str[0] = '\0';
-			return (str);
-		}
-	}
-	else
-	{
-		str = (char *) malloc(_strlen(s1) + _strlen(s2) + 1);
-		if (!str)
-		{
-			return (NULL);
-		}
-		else
-		{
-			_strcat(str, s1);
-			_strcat(str, s2);
-		}
-	}
-	return (str);
+	return (mat);
 }
