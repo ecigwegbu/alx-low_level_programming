@@ -20,7 +20,7 @@ char *argstostr(int ac, char **av)
 		return (NULL);
 
 	/* calc buffer size */
-	buff_sz = ac;
+	buff_sz = ac + 1;
 	for (i = 0; i < ac; i++)
 		buff_sz += _strlen(av[i]);
 
