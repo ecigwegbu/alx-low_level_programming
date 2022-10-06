@@ -3,7 +3,6 @@
 #include "main.h"
 #include "_strlen.c"
 #include "_strncat.c"
-#include "_strcat.c"
 
 /**
  * string_nconcat - concatenates n chars from string s2 to s1
@@ -29,10 +28,12 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	str = (char *) malloc(_strlen(s1) + _strlen(s2) + 1);
 	if (!str)
-	return (NULL);
+		return (NULL);
 	str[0] = '\0';
-	_strcat(str, s1);
+	_strncat(str, s1, _strlen(s1));
 	_strncat(str, s2, n);
+	str[_strlen(s1) + _strlen(s2) + 1] = '\0';
+
 	return (str);
 }
 
