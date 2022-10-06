@@ -50,7 +50,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		if (!str)
 			return (NULL);
 		str[0] = '\0';
-		_strcpy(str, s1);
+		_strcat(str, s1);
 		_strncat(str, s2, n);
 	}
 	return (str);
