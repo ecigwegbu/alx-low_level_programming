@@ -1,21 +1,23 @@
 /*****************************************************************************/
 #include <stdlib.h>
 #include "main.h"
-#include "_strlen.c"
-#include "_strncat.c"
 
 /**
- * string_nconcat - concatenates n chars from string s2 to s1
- * and returns a new string
+ * malloc_checked - allocates memory using malloc and exits normally
  *
- * @s1: the base string
- * @s2: the concat string
- * @n: the number of characters to concat
- * Return: the string result
+ * @b: the number of bytes to allocate
+ * Return: void pointer to allocated memory
  */
-void *malloc_checked(unsigned int b);
+void *malloc_checked(unsigned int b)
 {
+	void *c;
 
-	return (str);
+	c = malloc(b);
+	if (c == NULL)
+	{
+		exit(98);
+	}
+
+	return (c);
 }
 
