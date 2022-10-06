@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "main.h"
 
+void exit_98(void);
 /**
  * malloc_checked - allocates memory using malloc and exits normally
  *
@@ -15,9 +16,19 @@ void *malloc_checked(unsigned int b)
 	c = malloc(b);
 	if (c == NULL)
 	{
-		exit(98);
+		atexit(exit_98);
+		return (NULL);
 	}
 
 	return (c);
 }
 
+
+/**
+ * exit_98 - allocates memory using malloc and exits normally
+ *
+ */
+void exit_98(void)
+{
+	exit(98);
+}
