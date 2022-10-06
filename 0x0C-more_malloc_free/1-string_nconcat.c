@@ -3,6 +3,7 @@
 #include "main.h"
 #include "_strlen.c"
 #include "_strncat.c"
+#include "_strcpy.c"
 
 /**
  * string_nconcat - concatenates n chars from string s2 to s1
