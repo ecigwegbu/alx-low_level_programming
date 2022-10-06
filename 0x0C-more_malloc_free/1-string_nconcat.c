@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include "main.h"
 #include "_strlen.c"
-#include "_strncpy.c"
 #include "_strcpy.c"
 #include "_strncat.c"
+#include "_strcat.c"
 
 /**
  * string_nconcat - concatenates n chars from string s2 to s1
@@ -20,20 +20,21 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	char *str;
 
 	_set_n(s2, &n);
-
 	if (!s1 && s2)    /* only s1 empty */
 	{
 		str = (char *) malloc(_strlen(s2) + 1);
 		if (!str)
 			return (NULL);
-		return (_strncpy(str, s2, n));
+		str[0] = '\0';
+		return (_strncat(str, s2, n));
 	}
 	else if (s1 && !s2)    /* only s2 empty */
 	{
 		str = (char *) malloc(_strlen(s1) + 1);
 		if (!str)
 			return (NULL);
-		return (_strcpy(str, s1));
+		str[0] = '\0';
+		return (_strcat(str, s1));
 	}
 	else if (!s1 && !s2)    /* both s1 & s2 empty */
 	{
@@ -48,6 +49,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		str = (char *) malloc(_strlen(s1) + _strlen(s2) + 1);
 		if (!str)
 			return (NULL);
+		str[0] = '\0';
 		_strcpy(str, s1);
 		_strncat(str, s2, n);
 	}
