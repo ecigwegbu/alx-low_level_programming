@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include "main.h"
 
+void cleanup(void);
+
 /**
  * malloc_checked - allocates memory using malloc and exits normally
  *
@@ -15,8 +17,18 @@ void *malloc_checked(unsigned int b)
 	c = malloc(b * sizeof(char));
 	if (c == NULL)
 	{
-		exit(98);
+		atexit(cleanup);
 	}
 
 	return (c);
+}
+
+
+/**
+ * cleanup - cleans up the mess at exit
+ *
+ */
+void cleanup(void)
+{
+	exit(98);
 }
