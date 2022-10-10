@@ -2,6 +2,7 @@
 #define _DOG_H
 
 typedef struct dog dog;
+typedef struct dog dog_t;
 
 /**
  * struct dog - dog
