@@ -112,4 +112,6 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 
 void init_dog(struct dog *d, char *name, float age, char *owner);
 
+void print_dog(struct dog *d);
+
 #endif
