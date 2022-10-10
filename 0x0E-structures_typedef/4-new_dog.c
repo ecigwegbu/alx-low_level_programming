@@ -15,49 +15,29 @@ dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *d;  /* create a new dog pointer */
 
-	d = malloc(sizeof(dog_t));
+	d = malloc(sizeof(dog_t));  /*allocate space for struct */
 	if (!d)
-		exit(1);
+		return (NULL);
 
-	init_dog(d, name, age, owner)
-	d->name = name;
-	d->age = age;
-	d->owner = owner;
-
-	return (d);
-}
-
-
-
-
-#include "dog.h"
-#include <stdlib.h>
-#include "_strlen.c"
-#include "_strcpy.c"
-
-/**
- * init_dog - initialize a dog
- *
- * @d: pointer to the dog
- * @name: the name of the dog
- * @age: the age of the dog
- * @owner: the owner of the dog, ie me - LOL
- */
-void init_dog(struct dog *d, char *name, float age, char *owner)
-{
-	d->name = malloc(_strlen(name) + 1);
+	d->name = malloc(_strlen(name) + 1); /*space for copy of name */
 	if (!d->name)
-		exit(1);
+	{
+		free(d);
+		return (NULL);
+	}
 	_strcpy(d->name, name);
 
 	d->age = age;
 
-	d->owner = malloc(_strlen(owner) + 1);
+	d->owner = malloc(_strlen(owner) + 1); /*space for copy of owner */
 	if (!d->owner)
 	{
 		free(d->name);
-		exit(1);
+		free(d);
+		return (NULL);
 	}
 	_strcpy(d->owner, owner);
+
+	return (d);
 }
 
