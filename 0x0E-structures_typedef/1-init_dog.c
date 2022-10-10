@@ -22,7 +22,10 @@ void init_dog(struct dog *d, char *name, float age, char *owner)
 
 	d->owner = malloc(_strlen(owner) + 1);
 	if (!d->owner)
+	{
+		free(d->name);
 		exit(1);
+	}
 	_strcpy(d->owner, owner);
 }
 
