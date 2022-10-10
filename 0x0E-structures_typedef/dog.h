@@ -15,6 +15,7 @@ struct dog
 	float age;
 	char *owner;
 };
-#endif
 
 #include "main.h"
+
+#endif
