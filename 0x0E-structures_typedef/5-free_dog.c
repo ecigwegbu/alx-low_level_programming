@@ -8,6 +8,8 @@
  */
 void free_dog(dog_t *d)
 {
+	if (!d)
+		return;
 	/* first free the dog member pointers */
 	if (d->name)
 		free(d->name);
