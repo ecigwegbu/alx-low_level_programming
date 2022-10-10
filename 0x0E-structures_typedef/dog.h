@@ -3,7 +3,6 @@
 
 typedef struct dog dog;
 
-
 /**
  * struct dog - dog
  * @name: the name of the dog
@@ -16,5 +15,6 @@ struct dog
 	float age;
 	char *owner;
 };
-
 #endif
+
+#include "main.h"
