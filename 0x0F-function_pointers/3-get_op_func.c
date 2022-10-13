@@ -29,3 +29,4 @@ int (*get_op_func(char *s))(int, int) /* strange decl for fun returning fptr */
 
 	return (NULL);  /* command not matched */
 }
+

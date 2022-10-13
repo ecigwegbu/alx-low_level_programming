@@ -1,5 +1,6 @@
 #ifndef _ECI_FUNCTION_POINTERS_H
 #define _ECI_FUNCTION_POINTERS_H
+#include <stdlib.h>
 
 int _putchar(char c);
 
@@ -14,3 +15,4 @@ void print_elem_hex(int elem);
 int int_index(int *array, int size, int (*cmp)(int));
 
 #endif
+
