@@ -34,7 +34,12 @@ int main(int argc, char *argv[])
 	b = atoi(argv[3]);
 
 	command = get_op_func(argv[2]);  /* get function pointer/command */
+	if (!command)
+	{
+		printf("Error\n");
+		exit(99);
 
+	}
 	result = command(a, b);          /* put function pointer to work! */
 	printf("%d\n", result);
 
