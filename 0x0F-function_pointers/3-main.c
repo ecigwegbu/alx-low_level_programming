@@ -1,5 +1,6 @@
 #include <stdio.h>
-#include "3-main.h"
+#include <stdlib.h>
+#include "3-calc.h"
 
 /**
  * main - the main program
@@ -10,24 +11,32 @@
  */
 int main(int argc, char *argv[])
 {
-	int a, b;
+	int a, b, result;
+	char op;
+	int (*command)(int, int);
 
 	if (argc != 4)
 	{
 		printf("Error\n");
 		exit(98);
 	}
-	elseif (argv[2][0] != '+' || argv[2][0] != '-' \
-		argv[2][0] != '*' || argv[2][0] != '/' \
-		argv[2][0] != '%')
+
+	op = argv[2][0]; /* the command character */
+
+	if (op != '+' && op != '-' && op != '*' && op != '/' && op != '%')
 	{
 		printf("Error\n");
 		exit(99);
 	}
 
-	a = atoi(argv[1];
-	b = atoi(argv[3];
+	/* convert args to integer operands */
+	a = atoi(argv[1]);
+	b = atoi(argv[3]);
 
+	command = get_op_func(argv[2]);  /* get function pointer/command */
+
+	result = command(a, b);          /* put function pointer to work! */
+	printf("%d\n", result);
 
 	return (0);
 }
