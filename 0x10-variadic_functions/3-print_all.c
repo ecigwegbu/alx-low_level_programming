@@ -18,11 +18,6 @@ void print_all(const char * const format, ...)
 	va_start(ap, format);
 	while (*fmt)
 	{
-		if (*fmt != 'c' && *fmt != 'i' && *fmt != 'f' && *fmt != 's')
-		{
-			fmt++;
-			continue;
-		}
 		switch (*fmt++)
 		{
 		case 'c':              /* char */
