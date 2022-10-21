@@ -1,5 +1,4 @@
 /*****************************************************************************/
-#include <stdio.h>  /*debug */
 #include <string.h>
 #include "lists.h"
 
@@ -25,7 +24,11 @@ void free_list(list_t *head)
 
 		if (priorNode == NULL)
 		{
-			freeNode(head);
+			/* free head node */
+			free(head->str);
+			head->str = NULL;
+			free(head);
+			head = NULL;
 			return;
 		}
 
