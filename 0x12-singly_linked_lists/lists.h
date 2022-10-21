@@ -30,8 +30,7 @@ size_t list_len(const list_t *h);
 list_t *add_node(list_t **head, const char *str);
 list_t *add_node_end(list_t **head, const char *str);
 void free_list(list_t *head);
-list_t *getLastNode(list_t *node);
-int freeNode(list_t *priorNode);
+int freeNode(list_t *node);
 
 
 #endif /* _ECI_LINKED_LMAIN_H */
