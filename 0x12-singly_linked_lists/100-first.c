@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include "lists.h"
 /**
  * myConstructor - executes before main
  *
