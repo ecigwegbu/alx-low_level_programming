@@ -15,19 +15,19 @@ list_t *add_node_end(list_t **head, const char *str)
 	list_t *lastNode = (NULL);
 	list_t *temp = NULL;
 	/* first check head is not NULL */
-	if (!head)
+	if (!head)   /*check if null pointer passed */
 		return (NULL);
 	lastNode = malloc(sizeof(list_t));
-	if (!lastNode)
+	if (!lastNode)   /* check for malloc failure */
 		return (NULL);
 	lastNode->str = strdup(str);
-	if (!str)
+	if (!lastNode->str)
 		lastNode->len = 0;
 	else
 		lastNode->len = _strlen(lastNode->str);
 	lastNode->next = NULL;
 	/* check if list is empty */
-	if (*head == NULL)
+	if (*head == NULL)   /* check if list is empty */
 	{
 		*head = lastNode;
 		return (*head);
