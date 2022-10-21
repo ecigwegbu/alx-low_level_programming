@@ -25,7 +25,8 @@ void free_list(list_t *head)
 		if (priorNode == NULL)
 		{
 			/* free head node */
-			free(head->str);
+			if (head->str)
+				free(head->str);
 			head->str = NULL;
 			free(head);
 			head = NULL;
