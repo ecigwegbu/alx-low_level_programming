@@ -28,7 +28,6 @@ list_t *add_node(list_t **head, const char *str)
         else
                 temp->len = _strlen(temp->str);
 
-	temp->len = _strlen(temp->str);
 	temp->next = *head;
 	*head = temp; /* de-ref to get node pointer */
 
