@@ -22,12 +22,13 @@ list_t *add_node(list_t **head, const char *str)
 	if (!temp)
 		return (NULL);
 
+	if (!str)
+	{
+		temp->len = 0;
+		temp->str = NULL;
+	}
 	temp->str = strdup(str);
-        if (!str)
-                temp->len = 0;
-        else
-                temp->len = _strlen(temp->str);
-
+	temp->len = _strlen(temp->str);
 	temp->next = *head;
 	*head = temp; /* de-ref to get node pointer */
 
