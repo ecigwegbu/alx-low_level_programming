@@ -1,7 +1,7 @@
 /*****************************************************************************/
 #include "main.h"
 /**
- * _puts - print a string in reverse
+ * print_rev - print a string in reverse
  * uses _putchar()
  *
  * @s: the string to print in reverse
