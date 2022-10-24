@@ -3,12 +3,11 @@
 #include "free_nodeint.c"
 
 /**
- * free_listint2 - frees a singly linked list
- * and sets the head to NULL
+ * pop_listint - pop 1st node in a singly linked list
  *
  * @head: address of pointer to the first node
  */
-void free_listint2(listint_t **head)
+int pop_listint2(listint_t **head);
 {
 
 	listint_t *temp;
