@@ -1,30 +1,31 @@
 /*****************************************************************************/
 #include "lists.h"
-#include "free_nodeint.c"
+/* #include "free_nodeint.c" */
 
 /**
  * pop_listint - pop 1st node in a singly linked list
  *
  * @head: address of pointer to the first node
  */
-int pop_listint2(listint_t **head);
+int pop_listint(listint_t **head)
 {
+	int n0;  /* will hold the n value of first node */
 
 	listint_t *temp;
 
 	if (!head)
-		return;
+		return (0);
 	else if (*head == NULL)
-		return;
+		return (0);
 
 	temp = *head;
+	n0 = (*head)->n;
 
-	while ((*head)->next)
-	{
-		temp = temp->next;
-		free_nodeint(*head);
-		*head = temp;
-	}
-	free_nodeint(*head);
+	if ((*head)->next)	/* check for last node */
+		*head = (*head)->next;
+
+	free_nodeint(temp);
+
+	return (n0);
 }
 

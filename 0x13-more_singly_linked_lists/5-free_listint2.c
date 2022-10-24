@@ -26,6 +26,11 @@ void free_listint2(listint_t **head)
 		free_nodeint(*head);
 		*head = temp;
 	}
+	temp = NULL;
 	free_nodeint(*head);
+
+	*head = NULL;
 }
+
+
 
