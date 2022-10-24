@@ -6,7 +6,7 @@
  *
  * @head: address of the first node pointer
  * @n: the int value of the new node
- * Return: the number of nodes printed
+ * Return: the address of the new element added
  */
 listint_t *add_nodeint(listint_t **head, const int n)
 {
