@@ -28,8 +28,9 @@ int pop_listint(listint_t **head)
 	{
 		*head = NULL;
 	}
-		free(tmp);
-		tmp = NULL;
+
+	free(tmp);
+	tmp = NULL;
 
 	return (n0);
 }
