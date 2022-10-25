@@ -17,19 +17,22 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		return (NULL);
 	size = (unsigned int) listint_len(*head);   /* get the length of the list */
 
-	if (idx == 0 || *head == NULL)
+	if (idx == 0)
 	{
-		/* add node at beginning */
+		/* add node at the beginning */
 		newNode = add_nodeint(head, n);
 		return (newNode);
 	}
-	else if (idx == (size))
+	if (*head == NULL)	/* can't add elsewhere unless idx != 0 */
+		return (NULL);
+
+	if (idx == (size))
 	{
 		/* add node at end */
 		newNode = add_nodeint_end(head, n);
 		return (newNode);
 	}
-	else if (idx >= 1)
+	if (idx >= 1)
 	{
 		/* add node in between */
 		newNode = add_nodeint_idx(*head, idx, n);
