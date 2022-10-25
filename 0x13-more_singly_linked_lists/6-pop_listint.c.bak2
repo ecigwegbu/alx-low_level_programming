@@ -4,12 +4,12 @@
 /**
  * pop_listint - pop 1st *head in a singly linked list
  *
- * @head: address of pointer to the first *head
- * Return: the value of the first *head
+ * @head: address of pointer to the first node
+ * Return: the value of the first node
  */
 int pop_listint(listint_t **head)
 {
-	int n0;  /* will hold the n value of first *head */
+	int n0;  /* will hold the n value of first node */
 	listint_t *tmp;
 
 	if (!head)
@@ -20,10 +20,10 @@ int pop_listint(listint_t **head)
 	tmp = *head;
 	n0 = (*head)->n;
 
-	if ((*head)->next)	/* check for last *head */
+	if ((*head)->next)	/* check for last node */
 		*head = (*head)->next;
 
-	free(tmp);
+	free_nodeint(tmp);
 	tmp = NULL;
 
 	return (n0);
