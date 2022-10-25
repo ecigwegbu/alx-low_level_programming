@@ -1,6 +1,5 @@
 /*****************************************************************************/
 #include "lists.h"
-/* #include "free_nodeint.c"   */
 
 /**
  * pop_listint - pop 1st *head in a singly linked list
@@ -24,7 +23,7 @@ int pop_listint(listint_t **head)
 	if ((*head)->next)	/* check for last *head */
 		*head = (*head)->next;
 
-	free_nodeint(tmp);
+	free(tmp);
 	tmp = NULL;
 
 	return (n0);
