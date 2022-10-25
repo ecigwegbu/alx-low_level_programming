@@ -13,30 +13,30 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	unsigned int size;
 	listint_t *newNode = NULL;
 
-	if ((long)n < 0)
-		return (NULL);
-
 	if (!head)	/* check for NULL pointer address */
 		return (NULL);
 	size = (unsigned int) listint_len(*head);   /* get the length of the list */
+
 	if (idx == 0 || *head == NULL)
 	{
 		/* add node at beginning */
 		newNode = add_nodeint(head, n);
 		return (newNode);
 	}
-	else if (idx == (size - 1))
+	else if (idx == (size))
 	{
 		/* add node at end */
 		newNode = add_nodeint_end(head, n);
 		return (newNode);
 	}
-	else
+	else if (idx >= 1)
 	{
 		/* add node in between */
 		newNode = add_nodeint_idx(*head, idx, n);
 		return (newNode);
 	}
+
+	return (NULL);
 }
 
 
@@ -74,6 +74,9 @@ listint_t *add_nodeint_idx(listint_t *head,
 	newNode->n = n;
 	prevNode->next = newNode;
 	newNode->next = idxNode;
+
+	prevNode = NULL;
+	idxNode = NULL;
 
 	return (newNode);
 }
