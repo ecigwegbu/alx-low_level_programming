@@ -21,10 +21,15 @@ int pop_listint(listint_t **head)
 	n0 = (*head)->n;
 
 	if ((*head)->next)	/* check for last *head */
+	{
 		*head = (*head)->next;
-
-	free(tmp);
-	tmp = NULL;
+	}
+	else
+	{
+		*head = NULL;
+	}
+		free(tmp);
+		tmp = NULL;
 
 	return (n0);
 }
