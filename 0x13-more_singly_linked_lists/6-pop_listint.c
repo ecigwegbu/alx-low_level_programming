@@ -1,12 +1,11 @@
 /*****************************************************************************/
 #include "lists.h"
-/* #include "free_nodeint.c"   */
 
 /**
  * pop_listint - pop 1st *head in a singly linked list
  *
- * @head: address of pointer to the first *head
- * Return: the value of the first *head
+ * @head: address of pointer to the first node
+ * Return: the value of the first node
  */
 int pop_listint(listint_t **head)
 {
