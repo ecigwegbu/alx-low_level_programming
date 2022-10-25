@@ -13,6 +13,9 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	unsigned int size;
 	listint_t *newNode = NULL;
 
+	if ((long)n < 0)
+		return (NULL);
+
 	if (!head)	/* check for NULL pointer address */
 		return (NULL);
 	size = (unsigned int) listint_len(*head);   /* get the length of the list */
