@@ -41,6 +41,7 @@ size_t print_listint_safe(const listint_t *head);
 size_t free_listint_safe(listint_t **h);
 listint_t *find_listint_loop(listint_t *head);
 
+listint_t *add_nodeint_idx(listint_t *head, unsigned int idx, int n);
 
 
 #endif /* _ECI_MORE_LINKED_LMAIN_H */
