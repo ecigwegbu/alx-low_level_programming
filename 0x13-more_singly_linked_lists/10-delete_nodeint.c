@@ -16,7 +16,7 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		return (-1);
 
 	if (*head == NULL)	/* nothing to delete */
-		return (1);
+		return (-1);
 
 	/* get handles */
 	prevNode = get_nodeint_at_index(*head, index - 1);
