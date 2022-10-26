@@ -30,6 +30,10 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 	if (*head == idxNode)
 		*head = nextNode;
 	free(idxNode);
+	prevNode = NULL;
+	nextNode = NULL;
+	idxNode = NULL;
+
 	return (1);
 }
 
