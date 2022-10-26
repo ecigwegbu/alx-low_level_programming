@@ -13,10 +13,10 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 	listint_t *prevNode = NULL, *idxNode = NULL, *nextNode = NULL;
 
 	if (!head)	/* check for NULL pointer address */
-		return (-1);
+		return (1);
 
 	if (*head == NULL)	/* nothing to delete */
-		return (-1);
+		return (1);
 
 	/* get handles */
 	prevNode = get_nodeint_at_index(*head, index - 1);
