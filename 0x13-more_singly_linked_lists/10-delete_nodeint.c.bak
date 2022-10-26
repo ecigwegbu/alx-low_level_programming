@@ -21,8 +21,6 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 	/* get handles */
 	prevNode = get_nodeint_at_index(*head, index - 1);
 	idxNode = get_nodeint_at_index(*head, index);
-	if (!idxNode)	/* ie idx is larger than list length */
-		return (-1);
 	nextNode = get_nodeint_at_index(*head, index + 1);
 
 	if (prevNode)
