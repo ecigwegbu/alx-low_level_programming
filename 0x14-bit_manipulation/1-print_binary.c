@@ -1,9 +1,7 @@
 /*****************************************************************************/
-#include <stdio.h>
 #include "main.h"
 
-/*#define VAR_SIZE ((unsigned long int) (sizeof(unsigned long int) * 8))  */
-#define VAR_SIZE 32
+#define VAR_SIZE ((int) (sizeof(unsigned long int) * 8))
 /**
  * print_binary - print the binary representation of a number
  * uses _putchar()
@@ -12,7 +10,7 @@
  */
 void print_binary(unsigned long int n)
 {
-	unsigned long int i, leftIndex = 0;
+	int leftIndex = 0;
 
 	if (n == 0)	/* trivial case */
 	{
@@ -20,17 +18,17 @@ void print_binary(unsigned long int n)
 		return;
 	}
 
-	/*	iprintb(n);   */
+	/* leftShift = (VAR_SIZE - leftIndex - 1);  */
 	/* skip leading zeros */
-	while (!((1 << (VAR_SIZE - leftIndex - 1)) & n))
+	while (!((1UL << (VAR_SIZE - leftIndex - 1)) & n))
 	{
 		leftIndex++;
 	}
-	/*	printf("leftIndex at Start: %lu\n", leftIndex); */
+
 	/* print bits */
-	for (i = leftIndex; i < VAR_SIZE; i++)
+	for (; leftIndex < VAR_SIZE; leftIndex++)
 	{
-		if ((1 << (VAR_SIZE - i - 1)) & n)
+		if ((1UL << (VAR_SIZE - leftIndex - 1)) & n)
 			_putchar('1');
 		else
 			_putchar('0');
