@@ -1,5 +1,6 @@
 /*****************************************************************************/
 #include "main.h"
+#define BUFF_ 1024LU
 /**
  * read_textfile - reads text file and prints it to the POSIX standard output.
  *
@@ -9,35 +10,39 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	ssize_t nr = 0, nw;	/* num of characters read/wr in the round */
-	ssize_t count = 0;
+	size_t nr = 0, n2r = 0, nw;
+	size_t count = 0;
 	int fd;
-	char buff[1024];
+	char buff[BUFF_];
 
 	if (filename == NULL)
 		return (0);
-
+	if ((long int) letters < 0)
+		return (0);
 	/*if ((letters == 0) || ((ssize_t) letters > SSIZE_MAX)) */
 	if (letters == 0)
 		return (0);
-
 	fd = open(filename,  O_RDONLY);
 	if (fd == -1)
 		return (0);
-
-	/* read in batches of 1024 characters */
+	/* read in batches of BUFF_ characters */
 	while (1)
 	{
-		nr = read(fd, buff, letters - count);
-		if (nr <= 0)
+		n2r = (letters - count) > BUFF_ ? BUFF_ : (letters - count);
+		if (n2r == 0)
+			break;
+		nr = read(fd, buff, n2r);
+		if (nr == (size_t) (-1))
+			return (0);
+		if (nr == 0)
 			break;
 		nw = write(STDOUT_FILENO, buff, nr);
+		if (nw != nr)
+			return (0);
 		count += nw;
-		nr = 0;
+		n2r = nr = 0;
 	}
-
 	close(fd);
-
-	return (count);
+	return ((ssize_t) count);
 }
 
