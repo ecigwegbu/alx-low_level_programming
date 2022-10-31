@@ -39,8 +39,8 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	}
 	close(fd);
 	free(buff);
-	if (count != (ssize_t) letters)	/* In case could not write up to required */
-		return (0);
+	/*if (count != (ssize_t) letter) If could not write up to required */
+	/*	return (0); */
 	return (count);
 }
 
