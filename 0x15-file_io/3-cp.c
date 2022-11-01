@@ -116,12 +116,28 @@ ssize_t doCopy(int fd1, int fd2)
 	{
 		nr = read(fd1, buff, BUFF_);
 		if (nr == (size_t) (-1))	/* read error */
+		{
+			if (close(fd1))		/* unable to close file_from */
+			{
+				write(STDERR_FILENO,
+					"Error: Can't close %d\n", fd1);
+				exit(100);
+			}
 			return (-1);
+		}
 		if (nr == 0)
 			break;
 		nw = write(fd2, buff, nr);
 		if (nw != nr)	/* write error */
+		{
+			if (close(fd2))		/* unable to close file_from */
+			{
+				write(STDERR_FILENO,
+					"Error: Can't close %d\n", fd2);
+				exit(100);
+			}
 			return (-2);
+		}
 		count += nw;
 		nr = 0;
 	}
