@@ -55,7 +55,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 #include "lists.h"
 
 /**
- * dlistint_len - return the length of a doubly linked list
+ * _dlistint_len - return the length of a doubly linked list
  * @h: pointer to the head node
  * Return: the number of nodes
  */
