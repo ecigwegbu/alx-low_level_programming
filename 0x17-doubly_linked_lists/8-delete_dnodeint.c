@@ -46,6 +46,7 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	}
 	idxnode->prev->next = idxnode->next; /* link idxnode prev and next */
 	idxnode->next->prev = idxnode->prev;
+	free(idxnode);
 	return (1);
 }
 
