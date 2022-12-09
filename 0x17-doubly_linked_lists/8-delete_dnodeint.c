@@ -16,13 +16,13 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 
 	/* NULL checks */
 	if (head == NULL)
-		return (1);
+		return (-1);
 
 	/* get node at index */
 	idxnode = _get_dnodeint_at_index(*head, index);
 
 	if (idxnode == NULL)	/* invalid index */
-		return (1);
+		return (-1);
 
 	/* get list length -> len */
 	/* size_t _dlistint_len(const dlistint_t *h); */
