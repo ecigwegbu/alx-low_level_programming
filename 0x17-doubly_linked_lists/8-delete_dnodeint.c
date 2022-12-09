@@ -14,45 +14,38 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	dlistint_t *tmp, *idxnode;
 	unsigned int len;
 
-	/* NULL checks */
 	if (head == NULL)
 		return (-1);
-
-	/* get node at index */
-	idxnode = _get_dnodeint_at_index(*head, index);
-
-	if (idxnode == NULL)	/* invalid index */
+	if (*head == NULL)	/* empty list case */
 		return (-1);
-
-	/* get list length -> len */
-	/* size_t _dlistint_len(const dlistint_t *h); */
 	len = (unsigned int) _dlistint_len(*head);
-
 	if (index == 0)   /* deleting at the beginning */
 	{
-		if ((*head)->next)
+		if ((*head)->next)	/* not the only node */
 		{
 			tmp = (*head);
 			(*head) = (*head)->next;
 			free(tmp);
 			(*head)->prev = NULL;
 		}
-
+		else	/* single node case */
+		{
+			free(*head);
+			*head = NULL;
+		}
 		return (1);
 	}
-
+	idxnode = _get_dnodeint_at_index(*head, index); /* get node at index */
+	if (idxnode == NULL)	/* invalid index */
+		return (-1);
 	if (index == len - 1)   /* deleting at the end */
 	{
-		if (idxnode->prev != NULL)
-			idxnode->prev->next = NULL;
+		idxnode->prev->next = NULL;
 		free(idxnode);
 		return (1);
 	}
-
-	/* link idxnode prev and next */
-	idxnode->prev->next = idxnode->next;
+	idxnode->prev->next = idxnode->next; /* link idxnode prev and next */
 	idxnode->next->prev = idxnode->prev;
-
 	return (1);
 }
 
