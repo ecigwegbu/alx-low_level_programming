@@ -24,20 +24,20 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	else if (*h == NULL && idx != 0)	/* empty list w/invalid idx */
 		return (NULL);
 
+	if (idx == 0)   /* inserting at the beginning */
+		return (add_dnodeint(h, n));
+
+	/* get list length -> len */
+	len = (unsigned int) _dlistint_len(*h);
+
+	if (idx == len)   /* inserting at the end */
+		return (add_dnodeint_end(h, n));
+
 	/* get node at index */
 	idxnode = _get_dnodeint_at_index(*h, idx);
 
 	if (idxnode == NULL)	/* out of range index */
 		return (NULL);
-
-	/* get list length -> len */
-	len = (unsigned int) _dlistint_len(*h);
-
-	if (idx == 0)   /* inserting at the beginning */
-		return (add_dnodeint(h, n));
-
-	if (idx == len)   /* inserting at the end */
-		return (add_dnodeint_end(h, n));
 
 	/* malloc new node */
 	new = malloc(sizeof(dlistint_t));
