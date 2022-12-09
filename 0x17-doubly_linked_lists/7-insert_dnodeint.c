@@ -19,14 +19,18 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	if (h == NULL)
 		return (NULL);
 
+	if (*h == NULL && idx == 0)	/* empty list with idx == 0 */
+		return (add_dnodeint(h, n));
+	else if (*h == NULL && idx != 0)	/* empty list w/invalid idx */
+		return (NULL);
+
 	/* get node at index */
 	idxnode = _get_dnodeint_at_index(*h, idx);
 
-	if (idxnode == NULL)	/* invalid index */
+	if (idxnode == NULL)	/* out of range index */
 		return (NULL);
 
 	/* get list length -> len */
-	/* size_t _dlistint_len(const dlistint_t *h); */
 	len = (unsigned int) _dlistint_len(*h);
 
 	if (idx == 0)   /* inserting at the beginning */
