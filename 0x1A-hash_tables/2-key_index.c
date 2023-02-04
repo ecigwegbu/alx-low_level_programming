@@ -1,13 +1,24 @@
-#include <stdio.h>
+#include "hash_tables.h"
 
 /**
- * main - this is a placeholder
- * Return: always 0
+ * key_index - return the index of a key given the hash function & h.tbl size
+ * @key: the unique key for the table lookup
+ * @size: the number of elements in the hash table array
+ *
+ * Return: the index of the key normalised to hash table array size
  */
-int main(void)
+unsigned long int key_index(const unsigned char *key, unsigned long int size)
 {
-	printf("Hello, World!\n");
+	unsigned long int index;
 
-	return (0);
+	/* check size argument */
+	if (!(size > 0))
+	{
+		exit(EXIT_FAILURE);
+	}
+
+	/* use the hash function hash_djb2 and then normalize with a mod div*/
+	index = hash_djb2(key) % size;
+
+	return (index);
 }
-
