@@ -7,19 +7,28 @@
  *
  * Return: 1 if it succeeded, 0 otherwise
  */
-int hash_table_set(hash_table_t *ht, const char *key, const char *value);
-unsigned long int key_index(const unsigned char *key, unsigned long int size)
+int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index;
+	hash_node_t *nptr;
+	/*const unsigned char *ukey = (const unsigned char *) key;  */
 
-	/* check size argument */
-	if (!(size > 0))
-	{
-		exit(EXIT_FAILURE);
-	}
+	/* generate index using hash function */
+	index = hash_djb2((const unsigned char *) key) % ht->size;
 
-	/* use the hash function hash_djb2 and then normalize with a mod div*/
-	index = hash_djb2(key) % size;
+	/* what if the key already exists?  */
 
-	return (index);
+	/* allocate memory to new node whose head pointer is at index */
+	nptr = ht->array[index];
+	nptr = malloc(sizeof(hash_node_t));
+
+	/* some due dilligence checks; plus dup strings */
+	if (nptr == NULL || (nptr->value = strdup(value)) == NULL\
+			|| (nptr->key = strdup(key)) == NULL)
+		return (0);
+	nptr->next = NULL; /* dull terminate the linked list */
+
+	ht->array[index] = nptr;  /* nptr was temp */
+
+	return (1);
 }
