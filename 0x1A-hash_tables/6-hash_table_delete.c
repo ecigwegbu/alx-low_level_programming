@@ -1,13 +1,30 @@
-#include <stdio.h>
+#include "hash_tables.h"
 
 /**
- * main - this is a placeholder
- * Return: always 0
+ * hash_table_delete - delete a hash table
+ * @ht: pointer to the hash table struct
  */
-int main(void)
+
+void hash_table_delete(hash_table_t *ht)
 {
-	printf("Hello, World!\n");
+	hash_node_t *nptr;
+	unsigned long i;
 
-	return (0);
+	if (ht == NULL)
+		return;
+
+	for (i = 0; i < ht->size; i++)
+	{
+		if (ht->array[i] != NULL)
+		{
+			for (nptr = ht->array[i]; nptr != NULL; nptr = nptr->next)
+			{
+				free(nptr->key);
+				free(nptr->value);
+			}
+		}
+
+	}
+	free(ht->array);
+	free(ht);
 }
-
