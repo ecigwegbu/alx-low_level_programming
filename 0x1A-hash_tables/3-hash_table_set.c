@@ -17,6 +17,11 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	hash_node_t *nptr;
 	int result;
 
+	if (ht == NULL)
+	{
+		return (0);
+	}
+
 	index = hash_djb2((const unsigned char *) key) % ht->size;
 	nptr = ht->array[index]; /* temp pointer to element in array / list */
 	if (nptr == NULL)
