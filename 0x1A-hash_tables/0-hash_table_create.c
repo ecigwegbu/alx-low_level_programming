@@ -10,6 +10,7 @@
  */
 hash_table_t *hash_table_create(unsigned long int size)
 {
+	unsigned long int index;
 
 	hash_table_t *ht; /* this struct holds the actual ht & its size*/
 	/* the actual hash table is a hash_node_t* array: */
@@ -17,17 +18,12 @@ hash_table_t *hash_table_create(unsigned long int size)
 
 	/* check size argument */
 	if (!(size > 0))
-	{
 		return (NULL);
-	}
 
 	/* allocate storage for ht struct; actual ht array will be all' later*/
 	ht = malloc(sizeof(hash_table_t));
 	if (ht == NULL)
-	{
 		return (NULL);
-	}
-
 
 	/* now initialise the elements of the ht struct */
 	ht->size = size;
@@ -35,9 +31,11 @@ hash_table_t *hash_table_create(unsigned long int size)
 	/* allocate array */
 	ht->array = malloc(size * sizeof(hash_node_t *));
 	if (ht->array == NULL)
-	{
 		return (NULL);
-	}
+
+	/* initialise array elements/pointers to NULL */
+	for (index = 0; index < ht->size; ++index)
+		ht->array[index] = NULL;
 
 	return (ht);
 }
