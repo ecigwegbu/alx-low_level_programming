@@ -11,19 +11,14 @@
 int main(void)
 {
 	hash_table_t *ht;
-	unsigned long index, hash;
 
 	ht = hash_table_create(1024);
 	hash_table_set(ht, "betty", "cool");
+	hash_table_set(ht, "Betty", "cooler");
+	hash_table_set(ht, "Petty", "coolest");
+	hash_table_set(ht, "hetairas", "hetairas_value");
+	/*hash_table_set(ht, "mentioner", "mentioner_value");*/
 
-	/* verify set operation */
-	hash = hash_djb2((const unsigned char *) "betty");
-	index = hash % ht->size;
-	printf("ht size: %lu\n", ht->size);
-	printf("Hash for key \"betty\": %lu\n", hash);
-	printf("Index for key \"betty\": %lu\n", index);
-
-	printf("Node:\n\tKey: %s\n\tValue: %s\n", ht->array[index]->key, ht->array[index]->value);
-
+	print_ht(ht);
 	return (EXIT_SUCCESS);
 }
