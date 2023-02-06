@@ -94,7 +94,7 @@ int set_with_collision(hash_table_t *ht, const char *key, const char *value)
 	nptr->value = strdup(value);
 	if (nptr->value == NULL)
 		return (0);
-	nptr->next = ht->array[index]->next; /* dull terminate the linked list */
-	ht->array[index] = nptr;  /* nptr was temp */
+	nptr->next = ht->array[index];
+	ht->array[index] = nptr;
 	return (1);
 }
