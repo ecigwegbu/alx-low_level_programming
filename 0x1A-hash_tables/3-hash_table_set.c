@@ -77,7 +77,7 @@ int set_with_collision(hash_table_t *ht, const char *key, const char *value)
 	nptr = ht->array[index]; /* temp pointer to element in array / list */
 	for (nptr = ht->array[index]; nptr != NULL; nptr = nptr->next)
 	{
-		if (strcmp(nptr->value, value) == 0)
+		if (strcmp(nptr->key, key) == 0)
 		{
 			free(nptr->value);
 			nptr->value = strdup(value);

@@ -12,14 +12,14 @@ int print_ht(hash_table_t *ht)
 	unsigned long i;
 
 	/* print hash table header */
-	printf("INDEX\tKEY\t\t\tVALUE\n");
+	printf("INDEX\tKEY\t\tVALUE\n");
 	for (i = 0; i < ht->size; i++)
 	{
 		if (ht->array[i] != NULL)
 		{
 			for (nptr = ht->array[i]; nptr != NULL; nptr = nptr->next)
 			{
-				printf("%lu\t%s\t\t\t%s\n", i, nptr->key, nptr->value);
+				printf("%lu\t%s\t\t%s\n", i, nptr->key, nptr->value);
 			}
 		}
 
