@@ -6,7 +6,7 @@ OBJ=%.o
 NAME:school
 .PHONY: all
 
-%.o: %.c
+%.o: $(SRC)
 	$(CC) -c -o $(OBJ) $(SRC)
 all: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
