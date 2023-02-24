@@ -1,7 +1,7 @@
 # My First Useful Make file :)
 
 CC=gcc
-SRC=%.c
+SRC=main.c school.c
 OBJ=%.o
 NAME:school
 .PHONY: all
@@ -9,4 +9,4 @@ NAME:school
 all: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 %.o: $(SRC)
-	$(CC) -c -o $@ $(SRC)
+	$(CC) -c -o $@ $^
