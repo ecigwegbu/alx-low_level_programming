@@ -3,6 +3,7 @@
 Calculate the perimeter of an island.
 """
 
+
 def island_perimeter(grid):
     """Calculate the perimeter of an island
     grid is a list of list of integers:
@@ -15,5 +16,5 @@ def island_perimeter(grid):
     The island doesn’t have “lakes” (water inside that isn’t connected to the
     water around the island).
     """
-    
+
     return len(grid)
