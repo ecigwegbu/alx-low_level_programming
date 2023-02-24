@@ -6,11 +6,16 @@
 
 CC=gcc
 SRC=main.c school.c
-OBJ=%.o
-NAME:school
-.PHONY: all
+OBJ=$(SRC:.c=.o)
+NAME=school
 
+.PHONY: all
 all: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
-%.o: $(SRC)
-	$(CC) -c -o $@ $^
+
+%.o: %.c
+	$(CC) -c -o $@ $<
+
+.PHONY: clean
+clean:
+	rm -f *.o school

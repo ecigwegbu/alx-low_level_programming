@@ -11,7 +11,7 @@ NAME=school
 
 .PHONY: all
 all: $(OBJ)
-	$(CC) -o $(NAME) $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
 
 %.o: %.c
 	$(CC) -c -o $@ $<
