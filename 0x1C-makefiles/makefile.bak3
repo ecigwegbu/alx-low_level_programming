@@ -1,0 +1,20 @@
+# My First Useful Make file :)
+
+#gcc    -c -o main.o main.c
+#gcc    -c -o school.o school.c
+#gcc main.o school.o -o school
+
+CC=gcc
+SRC=%.c
+OBJ=main.o school.o
+NAME=school
+
+%.o: %.c
+	$(CC) -c -o $@ $<
+
+$(NAME): $(OBJ)
+	$(CC) -o $(NAME) $^
+
+.PHONY: clean
+clean:
+	rm -f *.o school

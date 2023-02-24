@@ -5,12 +5,15 @@
 #gcc main.o school.o -o school
 
 CC=gcc
-SRC=main.c school.c
-OBJ=%.o
-NAME:school
-.PHONY: all
+SRC=%.c
+OBJ=main.o school.o
 
-all: $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
-%.o: $(SRC)
-	$(CC) -c -o $@ $^
+.PHONY: clean
+
+%.o: %.c
+	$(CC) -c -o $@ $<
+
+school: $(OBJ)
+	$(CC) -o $@ $^
+clean:
+	rm -f *.o school
