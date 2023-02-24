@@ -7,6 +7,6 @@ NAME:school
 .PHONY: all
 
 %.o: $(SRC)
-	$(CC) -c -o $(OBJ) $(SRC)
+	$(CC) -c -o $@ $(SRC)
 all: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
