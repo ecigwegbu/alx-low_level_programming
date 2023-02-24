@@ -1,7 +1,7 @@
 # My Second Make file
 
 CC=gcc
-SRC=%.c
+SRC=main.c school.c
 .PHONY: all
 all:
 	$(CC) $(SRC) -o school
