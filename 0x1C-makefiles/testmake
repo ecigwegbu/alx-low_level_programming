@@ -1,8 +1,0 @@
-SRC=main.c school.c
-OBJ=${SRC:c=o} 
-
-.PHONEY: all
-all:
-	echo "$(SRC)"
-	echo "$(OBJ)"
-	
