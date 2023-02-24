@@ -12,7 +12,7 @@ all: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
 %.o: %.c
-	$(CC) -c -o $@ $< $(FLAGS)
+	$(CC) $(FLAGS) -c -o $@ $<
 
 .PHONY: clean oclean fclean re
 
