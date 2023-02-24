@@ -2,11 +2,11 @@
 
 CC=gcc
 SRC=main.c school.c
-OBJ=*.o
+OBJ=%.o
 NAME:school
 .PHONY: all
 
-$(OBJ): $(SRC)
+%.o: %.c
 	$(CC) -c -o $(OBJ) $(SRC)
 all: $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
