@@ -31,4 +31,5 @@ fclean:
 
 re:
 	$(RM) $(OBJ)
+	touch $(SRC)
 	$(MAKE)
