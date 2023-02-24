@@ -15,7 +15,3 @@ all: $(OBJ)
 
 %.o: %.c
 	$(CC) -c -o $@ $<
-
-.PHONY: clean
-clean:
-	rm -f *.o school
