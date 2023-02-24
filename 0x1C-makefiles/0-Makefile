@@ -1,0 +1,4 @@
+# My first Make file
+
+.PHONY: all
+all: school
