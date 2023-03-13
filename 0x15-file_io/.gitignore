@@ -3,5 +3,6 @@ head.c
 *test*
 *.debug
 *.bak*
+*.initial
 
 
