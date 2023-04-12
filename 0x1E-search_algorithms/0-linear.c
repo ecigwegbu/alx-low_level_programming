@@ -2,7 +2,7 @@
 
 /**
  * linear_search - find an element in an array using linear search algorithm
- * @array: a pointerto the first element of the array
+ * @array: a pointer to the first element of the array
  * @size: the size of the array to search
  * @value: the value to search for
  * Return: the first index where value is found
@@ -17,7 +17,7 @@ int linear_search(int *array, size_t size, int value)
 
 	for (i = 0; i < size; i++)
 	{
-		printf("value checked array[%lu] = [%d]\n", i, array[i]);
+		printf("Value checked array[%lu] = [%d]\n", i, array[i]);
 
 		if (array[i] == value)
 		{
