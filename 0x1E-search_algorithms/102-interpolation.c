@@ -1,7 +1,5 @@
 #include "search_algos.h"
 
-void print_array(int *array, size_t size);
-
 /**
  * interpolation_search - find an element in a sorted int array
  * using interpolation search algorithm
@@ -17,13 +15,22 @@ int interpolation_search(int *array, size_t size, int value)
 
 	if (array == NULL || (long int)size < 0)
 		return (-1);
-
+	/* pos = lo + [ { (x - arr[lo]) / (arr[hi] - arr[lo]) } */
+	/*    *(hi - lo) ] */
+	/* m = (L + R) / 2; => binary search */
+	/* m is the variable for pos  in this code */
+	m = L + ((double)(value - array[L]) / (array[R] - array[L])
+		* (R - L));
+	if (m < L || m > R)
+	{
+		printf("Value checked array[%lu] is out of range\n", m);
+		return (-1);
+	}
 	while (L <= R)
 	{
-		printf("Searching in array: ");
-		print_array(array + L, R + 1 - L);
-
-		m = (L + R) / 2;
+		m = L + ((double)(value - array[L]) / (array[R] - array[L])
+				* (R - L));
+		printf("Value checked array[%lu] = [%d]\n", m, array[m]);
 		if (array[m] < value)
 		{
 			L = m + 1;
@@ -40,20 +47,3 @@ int interpolation_search(int *array, size_t size, int value)
 	}
 	return (-1);
 }
-
-/**
- * print_array - print an integer array
- * @array: a pointer to the first element of the array; sorted in asc order
- * @size: the size of the array to print
- */
-
-void print_array(int *array, size_t size)
-{
-	size_t i;
-
-	for (i = 0; i < size; i++)
-		printf("%d%s", array[i], i == size - 1 ? "\n" : ", ");
-}
-
-
-
