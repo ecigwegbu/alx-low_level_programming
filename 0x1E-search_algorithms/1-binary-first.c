@@ -1,33 +1,6 @@
 #include "search_algos.h"
 
-/**
- * exponential_search - find an element in a sorted int array
- * using exponential search algorithm
- * @array: a pointer to the first element of the array; sorted in asc order
- * @size: the size of the array to search
- * @value: the value to search for
- * Return: the first index where value is found
- */
-
-int exponential_search(int *array, size_t size, int value)
-{
-	size_t i;
-
-	if (array == NULL || size == 0)
-		return (-1);
-
-	for (i = 0; i < size; i++)
-	{
-		printf("Value checked array[%lu] = [%d]\n", i, array[i]);
-
-		if (array[i] == value)
-		{
-			return (i);
-		}
-	}
-
-	return (-1);
-}
+void print_array(int *array, size_t size);
 
 /**
  * binary_search - find an element in a sorted int array
@@ -37,6 +10,7 @@ int exponential_search(int *array, size_t size, int value)
  * @value: the value to search for
  * Return: the first index where value is found
  */
+
 int binary_search(int *array, size_t size, int value)
 {
 	size_t L = 0, R = size - 1, m = 0;
@@ -69,6 +43,7 @@ int binary_search(int *array, size_t size, int value)
 			};
 			return (m);
 		}
+
 	}
 	return (-1);
 }
@@ -78,6 +53,7 @@ int binary_search(int *array, size_t size, int value)
  * @array: a pointer to the first element of the array; sorted in asc order
  * @size: the size of the array to print
  */
+
 void print_array(int *array, size_t size)
 {
 	size_t i;
@@ -85,3 +61,6 @@ void print_array(int *array, size_t size)
 	for (i = 0; i < size; i++)
 		printf("%d%s", array[i], i == size - 1 ? "\n" : ", ");
 }
+
+
+

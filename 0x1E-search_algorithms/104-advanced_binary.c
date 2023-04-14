@@ -18,7 +18,7 @@ int advanced_binary(int *array, size_t size, int value)
 	size_t L = 0, R = size - 1;
 	size_t indx = -1; /* pointer to the last found result */
 
-	if (array == NULL || (long int)size < 0)
+	if (array == NULL || size == 0)
 		return (-1);
 
 	return (advanced_binary_helper(array, L, R, value, &indx));
