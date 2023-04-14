@@ -14,21 +14,27 @@ void print_array(int *array, size_t size);
 
 int exponential_search(int *array, size_t size, int value)
 {
-	size_t L, R;
+	size_t L, R = 1;
+	int result = -1;  /* default: not found */
 
 	if (array == NULL || size == 0)
 		return (-1);
 
-	while (array[R] < value && R < size)
+	while ((size > R) && (array[R] < value))
 	{
 		printf("Value checked array[%lu] = [%d]\n", R, array[R]);
 		R *= 2;
 	}
 	L = R / 2;
-	R = (R + 1) > size ? size : (R + 1);
+	/*R = (R + 1) > size ? size : (R + 1); */
+	R = R > (size - 1) ? (size - 1) : R;
 	printf("Value found between indexes [%lu] and [%lu]\n", L, R);
 
-	return (binary_search_exp(array + L, R - L + 1, value));
+	result = binary_search_exp(array + L, R - L + 1, value);
+	if (result == -1)
+		return (-1);
+	else
+		return (result + L);
 }
 
 /**
