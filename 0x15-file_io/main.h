@@ -7,6 +7,7 @@
 #include <limits.h>
 #include <stdint.h>
 #include <string.h>
+#include <elf.h>
 
 
 /**
@@ -26,7 +27,7 @@ int getOutputFd(const char *filename);
 ssize_t doCopy(int fd1, int fd2);
 
 /* for the advanced */
-#define EI_NIDENT 16
+/* #define EI_NIDENT 16 */
 
 
 /**

@@ -73,22 +73,25 @@ int main(int ac, char **av)
 	close(fd);
 
 	printf("ELF Header:\n");
-	printf("Magic:  ");
+	printf(" Magic:  ");
 	for (byte = 0; byte < 16; byte++)
 		printf(" %02x", hdr.e_ident[byte]);
 	printf("\n");
-	printf("Class:                             ELF");
-	printf("%d\n", hdr.e_ident[4] == 1 ? 32 : 64);
-	printf("Data:                              2's complement, ");
-	printf("%s endian\n", hdr.e_ident[5] == 1 ? "little" : "big");
-	printf("Version:                           1 (current)\n");
-	printf("OS/ABI:                            ");
+	printf(" Class:                             ELF");
+	printf("%d\n", hdr.e_ident[4] == ELFCLASS64 ? 64 : 32);
+	printf(" Data:                              2's complement, ");
+	printf("%s endian\n", hdr.e_ident[5] == ELFDATA2LSB ? "little" : "big");
+	if (hdr.e_ident[6] == EV_CURRENT)
+		printf(" Version:                           1 (current)\n");
+	else
+		printf(" Version:                           Invalid version\n");
+	printf(" OS/ABI:                            ");
 	printf("%s\n", os_abi(hdr.e_ident[7], os_text));
-	printf("ABI Version:                       ");
-	printf("%d\n", hdr.e_ident[7] == 0 ? 0 : 1);
-	printf("Type:                              ");
+	printf(" ABI Version:                       ");
+	printf("%d\n", hdr.e_ident[8] == 0 ? 0 : 1);
+	printf(" Type:                              ");
 	printf("%s\n", e_type(hdr.e_type, type_text));
-	printf("Entry point address:               %p\n", hdr.e_entry);
+	printf(" Entry point address:               %p\n", hdr.e_entry);
 	/* printf("??????\n");  insert result of function call */
 	return (0);
 }
@@ -126,7 +129,7 @@ char *os_abi(char os, char *os_text)
 			strcpy(os_text, "HP-UX");
 			break;
 		case 2:
-			strcpy(os_text, "NetBSD");
+			strcpy(os_text, "UNIX - NetBSD");
 			break;
 		case 3:
 			strcpy(os_text, "Linux");
@@ -135,7 +138,7 @@ char *os_abi(char os, char *os_text)
 			strcpy(os_text, "GNU Hurd");
 			break;
 		case 6:
-			strcpy(os_text, "Solaris");
+			strcpy(os_text, "UNIX - Solaris");
 			break;
 		case 7:
 			strcpy(os_text, "AIX (Monterey)");
@@ -212,10 +215,10 @@ char *e_type(char type_code, char *type_text)
 			strcpy(type_text, "Relocatable file");
 			break;
 		case 0x02:
-			strcpy(type_text, "Executable file");
+			strcpy(type_text, "EXEC (Executable file)");
 			break;
 		case 0x03:
-			strcpy(type_text, "Shared Object");
+			strcpy(type_text, "DYN (Shared Object file)");
 			break;
 		case 0x04:
 			strcpy(type_text, "Core file");
